@@ -52,8 +52,11 @@ const handleDelete=(id)=>{
       items={items}
       handleCheck={handleCheck}
       handleDelete={handleDelete}
+      
       />
-      <Footer/>
+      <Footer
+      length={items.length}
+      />
     </div>
   );
 }
