@@ -158,7 +158,7 @@ button:hover {
   outline: none;
 }
 
-/* .searchForm {
+.searchForm {
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -180,4 +180,4 @@ button:hover {
   padding: 0.25rem;
   border-radius: 0.25rem;
   outline: none;
-} */
+}
