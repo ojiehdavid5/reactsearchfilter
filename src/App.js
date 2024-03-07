@@ -5,6 +5,8 @@ import Content from './Content'
 import Footer from './Footer'
 import "./index.css"
 import {useState} from "react"
+import AddItem from './AddItem'
+
 
 function App() {
   const[items,setItems]=useState(  [
@@ -39,6 +41,12 @@ const handleDelete=(id)=>{
 
 }
 
+const[newItem,setNewItem]=useState('');
+
+const handleSubmit=(e)=>{
+  console.log('submitted');
+}
+
 
 
   return (
@@ -48,6 +56,12 @@ const handleDelete=(id)=>{
         <h1>chuks</h1>
       </header> */}
       <Header title="Groceries list"/>
+      <AddItem
+      handleSubmit={handleSubmit}
+      newItem={newItem}
+      setNewItem={setNewItem}
+      
+      />
       <Content
       items={items}
       handleCheck={handleCheck}
