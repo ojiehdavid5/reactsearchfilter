@@ -7,6 +7,7 @@ import Footer from './Footer'
 import "./index.css"
 import {useState} from "react"
 import AddItem from './AddItem'
+import {useEffect} from 'react'
 
 
 function App() {
