@@ -5,40 +5,57 @@ import SearchItem from './SearchItem'
 import Content from './Content'
 import Footer from './Footer'
 import "./index.css"
-import {useState} from "react"
+import {useState,useEffect} from "react"
 import AddItem from './AddItem'
-import {useEffect} from 'react'
 
 
 function App() {
-  const[items,setItems]=useState( [{
-    id:1,
-    checked:false,
-    item:'milk'
-  }])
+  const API_URL="http://localhost:3500/items";
+  const[items,setItems]=useState(  [] );
   const [search,setSearch]=useState('');
+  
 
 
 const[newItem,setNewItem]=useState('');
+const[fetchError,setFetchError]=useState(null);
+
+useEffect(()=>{
+  // localStorage.setItem('shoppingLists',JSON.stringify(items))
+  const fetchItems= async ()=>{
+    try{
+      const response= await fetch(API_URL);
+      if(!response.ok) throw Error('Did not receive expected data')
+      const listItems= await response.json();
+      console.log(listItems);
+      setItems(listItems);
+      setFetchError(null)
+    }catch(err){
+      setFetchError(err.message)
+
+    }
+  }
+
+  setTimeout(()=>{
+    (async()=> await fetchItems())();
+
+  },2000)
+
+
+},[])
 
 
 
-const setAndSaveItems=(newItems)=>{
 
-  setItems(newItems);
-  localStorage.setItem('shoppingLists',JSON.stringify(newItems))
-
- }
 
 const handleCheck=(id)=>{
   const listItems= items.map((item)=> item.id===id ?{...item,checked:!item.checked}:item);
-  setAndSaveItems(listItems)
+  setItems(listItems)
 
 }
 
 const handleDelete=(id)=>{
   const listItems=items.filter((item)=> item.id!==id)
-  setAndSaveItems(listItems)
+  setItems(listItems)
 
 }
 
@@ -49,7 +66,7 @@ const addItem=(item)=>{
   const id =items.length  ? items[items.length - 1].id + 1 : 1;
   const myNewItem={id,checked:false,item};
   const listItems=[...items,myNewItem];
-  setAndSaveItems(listItems)
+  setItems(listItems)
 
 }
 
@@ -83,11 +100,17 @@ const handleSubmit=(e)=>{
   
   />
 
+  <main>
+    {fetchError && <p style={{color:'red'}}> {`Error:${fetchError}`}</p>}
+
+    {!fetchError && 
+
   <Content
     items={items.filter(item =>  ((item.item).toLowerCase()).includes(search.toLowerCase()))}
     handleCheck={handleCheck}
     handleDelete={handleDelete}
-  />
+  />}
+  </main>
   <Footer length={items.length} />
 </div>
 );

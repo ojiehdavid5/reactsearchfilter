@@ -1,0 +1,20 @@
+{
+    "items":[
+        {
+            "id":1,
+            "checked":false,
+            "item":"sugar"
+        },
+        {
+            "id":2,
+            "checked":false,
+            "item":"water"
+        },
+        {
+            "id":3,
+            "checked":false,
+            "item":"milk"
+        }
+
+    ]
+}
