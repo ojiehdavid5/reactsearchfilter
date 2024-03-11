@@ -26,9 +26,12 @@ useEffect(()=>{
       const response= await fetch(API_URL);
       if(!response.ok) throw Error('Did not receive expected data')
       const listItems= await response.json();
+
+
       console.log(listItems);
       setItems(listItems);
       setFetchError(null)
+      
     }catch(err){
       setFetchError(err.message)
 
