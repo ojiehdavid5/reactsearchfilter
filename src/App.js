@@ -20,7 +20,6 @@ const[newItem,setNewItem]=useState('');
 const[fetchError,setFetchError]=useState(null);
 
 useEffect(()=>{
-  // localStorage.setItem('shoppingLists',JSON.stringify(items))
   const fetchItems= async ()=>{
     try{
       const response= await fetch(API_URL);
