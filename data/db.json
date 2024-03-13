@@ -2,18 +2,28 @@
   "items": [
     {
       "id": "1",
-      "checked": false,
+      "checked": true,
       "item": "sugar"
     },
     {
       "id": "2",
-      "checked": true,
+      "checked": false,
       "item": "water"
     },
     {
       "id": "3",
-      "checked": true,
+      "checked": false,
       "item": "milk"
+    },
+    {
+      "id": "31",
+      "checked": false,
+      "item": "nnnnnn"
+    },
+    {
+      "id": "311",
+      "checked": false,
+      "item": "ojieh"
     }
   ]
 }
