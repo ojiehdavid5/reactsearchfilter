@@ -1,16 +1,6 @@
 {
   "items": [
     {
-      "id": "1",
-      "checked": true,
-      "item": "sugar"
-    },
-    {
-      "id": "2",
-      "checked": false,
-      "item": "water"
-    },
-    {
       "id": "3",
       "checked": false,
       "item": "milk"
