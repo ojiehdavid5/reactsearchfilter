@@ -79,6 +79,10 @@ const handleDelete= async (id)=>{
   const deleteOptions={
     method:'DELETE',
 
+
+
+    
+
   };
   const reqUrl=`${API_URL}/${id}`
   const result= await apiRequest(reqUrl,deleteOptions);
